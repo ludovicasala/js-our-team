@@ -1,3 +1,5 @@
+/***************** DATA *****************/
+
 const teamMembers = [
   {
     name: "Marco Bianchi",
