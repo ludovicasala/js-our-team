@@ -38,3 +38,24 @@ const teamMembers = [
     img: "img/female3.png"
   }
 ];
+
+const teamCardsContainer = document.querySelector(".team-container");
+
+// 1. Ciclo su tutto l'array
+for (let i = 0; i < teamMembers.length; i++) {
+
+  // 3. Pezzo dinamico della stringa
+  const membro = teamMembers[i];
+
+  // 2. Per ogni giro del ciclo scrivo la stringa con la struttura che mi serve
+  teamCardsContainer.innerHTML += `<div class="team-card">
+                    <div class="card-image">
+                        <img src="${membro.img}" alt="${membro.name}" />
+                    </div>
+                    <div class="card-text">
+                        <h3>${membro.name}</h3>
+                        <p>${membro.role}</p>
+                        <span>${membro.email}</span>
+                    </div>
+                </div>`;
+}
