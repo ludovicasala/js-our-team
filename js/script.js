@@ -40,16 +40,25 @@ const teamMembers = [
 ];
 
 
-const teamCardsContainer = document.querySelector(".team-container");
 
-// 1. Ciclo su tutto l'array
-for (let i = 0; i < teamMembers.length; i++) {
+// 6. Funzione che stampa i membri del team
+renderTeam(teamMembers);
 
-  // 3. Pezzo dinamico della stringa
-  const membro = teamMembers[i];
+// 5. Funzione che fa tutti i passaggi precedenti
+function renderTeam(listaMembri) {
 
-  // 2. Chiamiamo la funzione passando l'oggetto corrente
-  teamCardsContainer.innerHTML += getMemberCard(membro);
+  const teamCardsContainer = document.querySelector(".team-container");
+
+  // 1. Ciclo su tutto l'array
+  for (let i = 0; i < teamMembers.length; i++) {
+
+    // 3. Pezzo dinamico della stringa
+    const membro = teamMembers[i];
+
+    // 2. Chiamiamo la funzione passando l'oggetto corrente
+    teamCardsContainer.innerHTML += getMemberCard(membro);
+  }
+
 }
 
 // 4. Funzione 
