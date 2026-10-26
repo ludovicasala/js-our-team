@@ -79,3 +79,24 @@ const nameField = document.getElementById(`name`);
 const roleField = document.getElementById(`role`);
 const imageField = document.getElementById(`image`);
 
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  // Variabili d'appoggio
+  const name = nameField.value;
+  const role = roleField.value;
+  const image = imageField.value;
+
+  // Se manca uno di questi campi
+  if (!name || !role || !image) {
+    alert(`Campo obbligatorio!`);
+    return;
+  }
+
+  const newMember = {
+    name, //proprietà "name" con variabile uguale alla variabile "name"
+    role,
+    image,
+  };
+
+})
