@@ -96,3 +96,41 @@ section {
     color: #00bfff;
     font-size: 0.85rem;
 }
+
+.form-container {
+    background-color: #ffffff;
+    color: #333333;
+    padding: 20px;
+    max-width: 400px;
+    margin: 20px auto;
+    border: 1px solid #e0e0e0;
+}
+
+.form-container h2 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #111111;
+}
+
+#member-form input,
+#member-form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+#member-form input {
+    background-color: #f9f9f9;
+    border: 1px solid #cccccc;
+    color: #333333;
+}
+
+#member-form button {
+    background-color: #00bfff;
+    color: #ffffff;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
