@@ -39,6 +39,7 @@ const teamMembers = [
   }
 ];
 
+
 const teamCardsContainer = document.querySelector(".team-container");
 
 // 1. Ciclo su tutto l'array
@@ -47,15 +48,20 @@ for (let i = 0; i < teamMembers.length; i++) {
   // 3. Pezzo dinamico della stringa
   const membro = teamMembers[i];
 
-  // 2. Per ogni giro del ciclo scrivo la stringa con la struttura che mi serve
-  teamCardsContainer.innerHTML += `<div class="team-card">
-                    <div class="card-image">
-                        <img src="${membro.img}" alt="${membro.name}" />
-                    </div>
-                    <div class="card-text">
-                        <h3>${membro.name}</h3>
-                        <p>${membro.role}</p>
-                        <span>${membro.email}</span>
-                    </div>
-                </div>`;
+  // 2. Chiamiamo la funzione passando l'oggetto corrente
+  teamCardsContainer.innerHTML += getMemberCard(membro);
+}
+
+// 4. Funzione 
+function getMemberCard(oggetto) {
+  return `<div class="team-card">
+    <div class="card-image">
+      <img src="${oggetto.img}" alt="${oggetto.name}" />
+    </div>
+    <div class="card-text">
+      <h3>${oggetto.name}</h3>
+      <p>${oggetto.role}</p>
+      <span>${oggetto.email}</span>
+    </div>
+  </div>`;
 }
