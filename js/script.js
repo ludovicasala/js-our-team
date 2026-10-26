@@ -40,7 +40,6 @@ const teamMembers = [
 ];
 
 
-
 // 6. Funzione che stampa i membri del team
 renderTeam(teamMembers);
 
@@ -74,3 +73,9 @@ function getMemberCard(oggetto) {
     </div>
   </div>`;
 }
+
+const form = document.getElementById(`member-form`);
+const nameField = document.getElementById(`name`);
+const roleField = document.getElementById(`role`);
+const imageField = document.getElementById(`image`);
+
