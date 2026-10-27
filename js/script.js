@@ -48,11 +48,14 @@ function renderTeam(listaMembri) {
 
   const teamCardsContainer = document.querySelector(".team-container");
 
-  // 1. Ciclo su tutto l'array
-  for (let i = 0; i < teamMembers.length; i++) {
+  // Svuotiamo il contenitore prima di stampare la lista aggiornata
+  teamCardsContainer.innerHTML = "";
+
+  // 1. Ciclo su tutto l'array (usa "listaMembri" ricevuto come parametro, così è più riutilizzabile)
+  for (let i = 0; i < listaMembri.length; i++) {
 
     // 3. Pezzo dinamico della stringa
-    const membro = teamMembers[i];
+    const membro = listaMembri[i];
 
     // 2. Chiamiamo la funzione passando l'oggetto corrente
     teamCardsContainer.innerHTML += getMemberCard(membro);
@@ -85,7 +88,9 @@ form.addEventListener("submit", function (event) {
   // Variabili d'appoggio
   const name = nameField.value;
   const role = roleField.value;
-  const image = imageField.value;
+  const img = imageField.value;
+
+  // console.log(name), role, image);
 
   // Se manca uno di questi campi
   if (!name || !role || !image) {
@@ -96,7 +101,15 @@ form.addEventListener("submit", function (event) {
   const newMember = {
     name, //proprietà "name" con variabile uguale alla variabile "name"
     role,
-    image,
+    img,
   };
+
+  // creato nuovo oggetto, console.log(newMember);
+
+  teamMembers.push(newMember);
+
+  renderTeam(teamMembers);
+
+  event.target.reset();
 
 })
