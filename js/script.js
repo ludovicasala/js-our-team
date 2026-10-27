@@ -39,10 +39,6 @@ const teamMembers = [
   }
 ];
 
-
-// 6. Funzione che stampa i membri del team
-renderTeam(teamMembers);
-
 // 5. Funzione che fa tutti i passaggi precedenti
 function renderTeam(listaMembri) {
 
@@ -77,18 +73,14 @@ function getMemberCard(oggetto) {
   </div>`;
 }
 
-const form = document.getElementById(`member-form`);
-const nameField = document.getElementById(`name`);
-const roleField = document.getElementById(`role`);
-const imageField = document.getElementById(`image`);
-
-form.addEventListener("submit", function (event) {
+// Funzione per inserire un nuovo membro
+function onForSubmit(event) {
   event.preventDefault();
 
-  // Variabili d'appoggio
-  const name = nameField.value;
-  const role = roleField.value;
-  const img = imageField.value;
+  // Variabili d'appoggio con valore degli elementi che esistono in pagina
+  const name = document.getElementById(`name`).value;
+  const role = document.getElementById(`role`).value;
+  const img = document.getElementById(`image`).value;
 
   // console.log(name), role, image);
 
@@ -112,4 +104,9 @@ form.addEventListener("submit", function (event) {
 
   event.target.reset();
 
-})
+}
+
+// 6. Funzione che stampa i membri del team
+renderTeam(teamMembers);
+
+document.getElementById(`member-form`).addEventListener("submit", onForSubmit);
