@@ -39,6 +39,8 @@ const teamMembers = [
   }
 ];
 
+/*************** FUNZIONI ***************/
+
 // 5. Funzione che fa tutti i passaggi precedenti
 function renderTeam(listaMembri) {
 
@@ -58,7 +60,6 @@ function renderTeam(listaMembri) {
   }
 
 }
-
 // 4. Funzione 
 function getMemberCard(oggetto) {
   return `<div class="team-card">
@@ -72,7 +73,6 @@ function getMemberCard(oggetto) {
     </div>
   </div>`;
 }
-
 // Funzione per inserire un nuovo membro
 function onForSubmit(event) {
   event.preventDefault();
@@ -105,6 +105,23 @@ function onForSubmit(event) {
   event.target.reset();
 
 }
+
+// LOCALSTORAGE: Funzione che accetta l'array, lo converte e lo salva
+function saveMembersToStorage(membersList) {
+
+  const datoSerializzato = JSON.stringify(membersList);
+  localStorage.setItem("members", datoSerializzato);
+
+}
+// LOCALSTORAGE: Funzione che accetta l'array, lo converte e lo carica
+function loadMembersToStorage() {
+
+  const datoSerializzato = localStorage.getItem("members");
+  const nuovoArray = JSON.parse(datoSerializzato);
+  return nuovoArray;
+}
+
+/*************** PAGE INIT ***************/
 
 // 6. Funzione che stampa i membri del team
 renderTeam(teamMembers);
