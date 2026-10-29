@@ -1,6 +1,6 @@
 /***************** DATA *****************/
 
-const teamMembers = [
+let teamMembers = [
   {
     name: "Marco Bianchi",
     role: "Designer",
@@ -38,6 +38,7 @@ const teamMembers = [
     img: "img/female3.png"
   }
 ];
+
 
 /*************** FUNZIONI ***************/
 
@@ -114,16 +115,25 @@ function saveMembersToStorage(membersList) {
 
 }
 // LOCALSTORAGE: Funzione che accetta l'array, lo converte e lo carica
-function loadMembersToStorage() {
+function loadMembersFromStorage() {
 
   const datoSerializzato = localStorage.getItem("members");
   const nuovoArray = JSON.parse(datoSerializzato);
   return nuovoArray;
 }
 
+
 /*************** PAGE INIT ***************/
 
-// 6. Funzione che stampa i membri del team
-renderTeam(teamMembers);
+// Ignora l'array teamMembers e ricarica con quello che ho trovato nel localStorage
+const membriSalvati = loadMembersFromStorage();
+
+if (membriSalvati == null) {
+  // 6. Funzione che stampa i membri dell'array (renderizza di default)
+  renderTeam(teamMembers);
+} else {
+  // Renderizza cards salvate in localStorage
+  renderTeam(membriSalvati);
+}
 
 document.getElementById(`member-form`).addEventListener("submit", onForSubmit);
